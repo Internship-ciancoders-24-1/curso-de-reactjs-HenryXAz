@@ -1,14 +1,6 @@
 import React from "react";
 
 class BadgeForm extends React.Component {
-    // state = {};
- 
-    // handleChange = (e) => {
-    // // console.log({value: e.target.value, name: e.target.name});
-    //     this.setState({
-    //     [e.target.name]: e.target.value,
-    //     });
-    // };
 
     handleClick = (e) => {
         e.preventDefault();
@@ -20,14 +12,10 @@ class BadgeForm extends React.Component {
         console.log(this.state);
     };
 
-
-
     render() {
     return (
-      <div>
-        <h1>New Attendant</h1>
-
-        <form onSubmit={this.handleSubmit}>
+      <div> 
+        <form onSubmit={this.props.onSubmit}>
           <div className="form-group">
             <label htmlFor="firstName">
               First Name
@@ -99,6 +87,10 @@ class BadgeForm extends React.Component {
           >
             Save
           </button>
+
+          {this.props.error && (
+            <p className="text-danger">{this.props.error.message}</p>
+          )}
         </form>
       </div>
     );
